@@ -4,7 +4,7 @@
 	no-mixed-spaces-and-tabs, no-multi-spaces, camelcase, no-loop-func,no-empty,
 	key-spacing ,curly, no-shadow, no-return-assign, no-redeclare, no-unused-vars,
 	eqeqeq, no-extend-native, quotes , no-inner-declarations*/
-/*global  $ */
+/*global  $, SpotifyWebApi */
 var app = {};
 app.partial = {};
 
@@ -31,13 +31,23 @@ var share = {
 	}
 };
 
+var api = new SpotifyWebApi();
+
+if (debug) {
+	// development version
+	// api.Login.setClientId('71aac3cffd9648a889c174c4b32f7d57');
+	// api.Login.setRedirect(location.href);
+} else {
+	// live env.
+	// api.Login.setClientId('71aac3cffd9648a889c174c4b32f7d57');
+	// api.Login.setRedirect('http://lab.possan.se/druuum');
+}
 
 $(function(){
     // 定義每個section
 	$.each(app.partial, function(name, init){
 		init();
     });
-
 
 
 	//觸發第一次調整頁面尺寸

@@ -2,17 +2,17 @@
 	.row{
 		>section{
 			position: relative;
-			text-align: center;
+			// text-align: center;
 			margin-top: 15px;
-			&:before{
-				position: absolute;
-				top:0;
-				left:15px;
-				width: calc(100% - 30px);
-				height: 100%;
-				content: '';
-				background: rgba(0,0,0,0.3);
-			}
+			// &:before{
+			// 	position: absolute;
+			// 	top:0;
+			// 	left:15px;
+			// 	width: calc(100% - 30px);
+			// 	height: 100%;
+			// 	content: '';
+			// 	background: rgba(0,0,0,0.3);
+			// }
 		}
 	}
 }

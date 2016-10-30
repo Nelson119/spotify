@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Nn</title>
+    <title>Spotify</title>
 
-    <meta property="og:title" content="Nn"/>
+    <meta property="og:title" content="Spotify"/>
     <meta property="og:description" content=""/>
     <meta property="og:url" content=""/>
     <meta property="og:image" content=""/>
@@ -35,9 +35,9 @@
     <section class="container home">
       <header class="row">
         <!-- <h1 class="logo"></h1> -->
-        <a href="javascript:" class="burger visible-xs visible-sm"> 
+        <!-- <a href="javascript:" class="burger visible-xs visible-sm"> 
           <i class="fa fa-bars"></i>
-        </a>
+        </a> -->
         <!-- <nav>
           <a href="javascript:">XXX</a>
           <a href="javascript:">XXX</a>
@@ -46,16 +46,45 @@
           <a href="javascript:">XXX</a>
         </nav> -->
       </header>
-      <section class="row">
-        <section class="col-lg-3 col-md-3 col-sm-3 col-xs-12"><h1>1</h1></section>
-        <section class="col-lg-3 col-md-3 col-sm-3 col-xs-12"><h2>2</h2></section>
-        <section class="col-lg-3 col-md-3 col-sm-3 col-xs-12"><h3>3</h3></section>
-        <section class="col-lg-3 col-md-3 col-sm-3 col-xs-12"><h4>4</h4></section>
-        <section class="col-lg-3 col-md-3 col-sm-3 col-xs-12"><h5>5</h5></section>
-        <section class="col-lg-3 col-md-3 col-sm-3 col-xs-12"><h6>6</h6></section>
+        <span class="user-info">
+        {{display_name}}
+        {{country}}
+        </span>
+      <section class="row list-1">
+        <h3 class="col-lg-12 col-md-12 col-sm-12 col-xs-12">1 </h3>
+        <input type="button" id="login" value="取得歌單">
+        <select></select>
+        <aside class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          
+          <ol class="row"></ol>
+
+        </aside>
+
+      </section>
+      <section class="row list-3">
+        <h3 class="col-lg-12 col-md-12 col-sm-12 col-xs-12">2 台灣每週 Top50</h3>
+        <input type="button" value="列出" id="top50">
+        <aside class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          
+          <ol class="row"></ol>
+
+        </aside>
+
+      </section>
+      <section class="row list-2">
+        <h3 class="col-lg-12 col-md-12 col-sm-12 col-xs-12">3 自選歌曲</h3>
+        <section class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+          <input type="search" name="search" placeholder="search">
+        </section>
+        <aside class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          
+          <ol class="row"></ol>
+
+        </aside>
+
       </section>
       <footer>
-        <p>ALL RIGHTS RESERVED &copy;</p>
+        <!-- <p>ALL RIGHTS RESERVED &copy;</p> -->
       </footer>
     </section>
     
@@ -72,6 +101,7 @@
     <!-- build:js js/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/spotify-web-api-js/src/spotify-web-api.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
     
@@ -93,6 +123,8 @@
     <!-- build:js js/main.js -->
     <script src="js/app.js"></script>
     <script src="js/ga.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/home.js"></script>
     <!-- endbuild -->
   </body>
 </html>
