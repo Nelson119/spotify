@@ -14,12 +14,12 @@
 	var CLIENT_ID = '';
 	var REDIRECT_URI = '';
 
-	if (location.host == 'localhost:9000') {
+	if (/localhost[:]9000/.test(location.href)) {
 		CLIENT_ID =	'71aac3cffd9648a889c174c4b32f7d57';
 		REDIRECT_URI = 'http://localhost:9000/callback.html';
 	} else {
 		CLIENT_ID =	'71aac3cffd9648a889c174c4b32f7d57';
-		REDIRECT_URI = 'http://localhost:9000/callback.html';
+		REDIRECT_URI = 'http://nelson.works/spotify/callback.html';
 		// CLIENT_ID = '9714921402b84783b2a207f1b6e82612';
 		// REDIRECT_URI = 'http://lab.possan.se/thirtify/callback.html';
 	}
