@@ -52,13 +52,13 @@ gulp.task('lint', lint('app/js/**/*.js'));
 gulp.task('lint:test', lint('test/spec/**/*.js', testLintOptions));
 
 gulp.task('html', ['css', 'js'], () => {
-  gulp.src('app/CNAME').pipe(gulp.dest('dist'));
+  // gulp.src('app/CNAME').pipe(gulp.dest('dist'));
   return gulp.src('app/*.html')
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
     .pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.css', $.cssnano()))
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('../spotifyweb'));
 });
 
 gulp.task('img', () => {
@@ -74,14 +74,14 @@ gulp.task('img', () => {
       console.log(err);
       this.end();
     })))
-    .pipe(gulp.dest('dist/img'));
+    .pipe(gulp.dest('../spotifyweb/img'));
 });
 
 gulp.task('fonts', () => {
   return gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', function (err) {})
     .concat('app/fonts/**/*'))
     .pipe(gulp.dest('.tmp/fonts'))
-    .pipe(gulp.dest('dist/fonts'));
+    .pipe(gulp.dest('../spotifyweb/fonts'));
 });
 
 gulp.task('extras', () => {
@@ -90,7 +90,7 @@ gulp.task('extras', () => {
     '!app/*.html'
   ], {
     dot: true
-  }).pipe(gulp.dest('dist'));
+  }).pipe(gulp.dest('../spotifyweb'));
 });
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
@@ -120,15 +120,15 @@ gulp.task('serve', ['css', 'js', 'fonts'], () => {
   gulp.watch('bower.json', ['wiredep', 'fonts']);
 });
 
-gulp.task('serve:dist', () => {
-  browserSync({
-    notify: false,
-    port: 9000,
-    server: {
-      baseDir: ['dist']
-    }
-  });
-});
+// gulp.task('serve:dist', () => {
+//   browserSync({
+//     notify: false,
+//     port: 9000,
+//     server: {
+//       baseDir: ['dist']
+//     }
+//   });
+// });
 
 gulp.task('serve:test', ['js'], () => {
   browserSync({
@@ -166,7 +166,7 @@ gulp.task('wiredep', () => {
 });
 
 gulp.task('build', ['lint', 'html', 'img', 'fonts', 'extras'], () => {
-  return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
+  return gulp.src('../spotifyweb/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
 gulp.task('default', ['clean'], () => {
