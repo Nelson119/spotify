@@ -58,7 +58,7 @@ gulp.task('html', ['css', 'js'], () => {
     .pipe($.if('*.js', $.uglify()))
     .pipe($.if('*.css', $.cssnano()))
     .pipe($.if('*.html', $.htmlmin({collapseWhitespace: true})))
-    .pipe(gulp.dest('../spotifyweb'));
+    .pipe(gulp.dest('../spotifyweb/catchplay.lalaland'));
 });
 
 gulp.task('img', () => {
@@ -74,14 +74,14 @@ gulp.task('img', () => {
       console.log(err);
       this.end();
     })))
-    .pipe(gulp.dest('../spotifyweb/img'));
+    .pipe(gulp.dest('../spotifyweb/catchplay.lalaland/img'));
 });
 
 gulp.task('fonts', () => {
   return gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', function (err) {})
     .concat('app/fonts/**/*'))
     .pipe(gulp.dest('.tmp/fonts'))
-    .pipe(gulp.dest('../spotifyweb/fonts'));
+    .pipe(gulp.dest('../spotifyweb/catchplay.lalaland/fonts'));
 });
 
 gulp.task('extras', () => {
@@ -90,7 +90,7 @@ gulp.task('extras', () => {
     '!app/*.html'
   ], {
     dot: true
-  }).pipe(gulp.dest('../spotifyweb'));
+  }).pipe(gulp.dest('../spotifyweb/catchplay.lalaland'));
 });
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
@@ -166,7 +166,7 @@ gulp.task('wiredep', () => {
 });
 
 gulp.task('build', ['lint', 'html', 'img', 'fonts', 'extras'], () => {
-  return gulp.src('../spotifyweb/**/*').pipe($.size({title: 'build', gzip: true}));
+  return gulp.src('../spotifyweb/catchplay.lalaland/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
 gulp.task('default', ['clean'], () => {
